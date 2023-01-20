@@ -1,110 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>App Name: A Coding Challange</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Eventnet: A Coding Challange</title>
+      <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Allan:wght@400;700&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
-  <!-- Devicons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/site.css">
+    <!-- Devicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
 
 
-</head>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/site.css">
 
-<body>
 
-  <header>
-    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark">
+  </head>
+
+  <body onload="BuildDropDown()">
+
+    <header>
+      <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html">
+            <img src="/img/Base Logo Vector Files Blue Red.svg" height="50" alt="">
+            Eventnet
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon-mrb">
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/app.html">App</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/code.html">The Code</a>
+              </li>
+              <li class="nav-item">
+                <!-- Change This Before Publishing -->
+                <a class="nav-link" href="https://github.com/MattBridges/Eventnet">The Repo</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="https://mattbridgesportfolio.netlify.app/">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    </header>
+    <main class="content container mt-4">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Drop Dowm -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-secondary">Pick a Location</button>
+              <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="visually-hidden">Toggle Dropdown</span>
+              </button>
+              <ul class="dropdown-menu" id="eventDropDown">
+                <!-- <li><a class="dropdown-item" href="#">Action</a></li> -->                
+              </ul>
+            </div>
+            <table class="table table-striped">
+                <tr>
+                  <th colspan="2">Stats for <span id="statsHeader">All</span> Events</th>
+                </tr>
+                <tr>
+                  <td>Total Attendance</td>
+                  <td id="total">100</td>
+                </tr>
+                <tr>
+                  <td>Average Attendance</td>
+                  <td id="average">100</td>
+                </tr>
+                <tr>
+                  <td>Most Attended</td>
+                  <td id="most">100</td>
+                </tr>
+                <tr>
+                  <td>Least Attended</td>
+                  <td id="least">100</td>
+                </tr>
+            </table>
+          </div>
+          <div class="col-md-6 order-first order-md-last">
+            <img src="/img/EventnetLogo_500.png" height=90% class="image-fluid p-3" />
+          </div>
+        </div>
+        <button type="button" class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#addEventModal">Add Event</button>
+     <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Event Name</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Attendance</th>
+            <th>Event Date</th>
+          </tr>
+          <tbody id="eventTableBody">
+            <!-- Table template goes here -->
+          </tbody>
+        </thead>
+      </table>
+     </div>
+      
+
+
+    </main>
+    <footer class="container-fluid py-3">
       <div class="container">
-        <a class="navbar-brand" href="/index.html">
-          <img src="/img/Base Logo Vector Files Blue Red.svg" height="50" alt="">
-          App Name
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon-mrb">
-            <i class="bi bi-list"></i>
-          </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/app.html">App</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/code.html">The Code</a>
-            </li>
-            <li class="nav-item">
-            <!-- Change This Before Publishing -->
-            <a class="nav-link" href="https://github.com/MattBridges">The Repo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://mattbridgesportfolio.netlify.app/">About</a>
-          </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Blog</a>
-            </li>
-          </ul>
+        <div class="row row-cols-1 row-cols-lg-3 align-items-center order-last order-lg-first">
+          <div class="col text-center text-lg-start ">&copy;2023 Matt Bridges</div>
+          <div class="col text-center">
+            <img src="/img/Light_Grey_Signature_Long.svg" height="40" alt="">
+          </div>
+          <div class="col d-flex justify-content-center justify-content-lg-end my-2">
+            <a href="https://www.linkedin.com/in/themattbridges/" target="_blank" class="socialicons"><i
+                class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com/MattBridgesDev" target="_blank" class="socialicons"><i
+                class="bi bi-twitter"></i></a>
+            <a href="https://www.instagram.com/mattbridgesdev/" target="_blank" class="socialicons"><i
+                class="bi bi-instagram"></i></a>
+            <a href="https://github.com/MattBridges" target="_blank" class="socialicons"><i
+                class="bi bi-github"></i></a>
+          </div>
         </div>
       </div>
-    </nav>
+    </footer>
 
-  </header>
-  <main class="content container">
+    <template id="dropdownItemTemplate">
+      <li><a class="dropdown-item" onclick="GetEvents(this)"></a></li>
+    </template>
+    <template id="eventTableRowTemplate">
+      <tr>
+        <td date-id="event"></td>
+        <td date-id="city"></td>
+        <td date-id="state"></td>
+        <td date-id="attendance"></td>
+        <td date-id="eventDate"></td>
+      </tr>
+    </template>
 
-    <h1>APP UI GOES HERE</h1>
-    <input type="text" id="message" placeholder="Enter a Message.....">
-    <button class="btn btn-primary" id="btnSubmit" type="button">Display a Message</button>
-
-
-  </main>
-  <footer class="container-fluid py-3">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-lg-3 align-items-center order-last order-lg-first">
-        <div class="col text-center text-lg-start ">&copy;2023 Matt Bridges</div>
-        <div class="col text-center">
-          <img src="/img/Light_Grey_Signature_Long.svg" height="40" alt="">
-        </div>
-        <div class="col d-flex justify-content-center justify-content-lg-end my-2">
-          <a href="https://www.linkedin.com/in/themattbridges/" target="_blank" class="socialicons"><i class="bi bi-linkedin"></i></a>
-            <a href="https://twitter.com/MattBridgesDev" target="_blank" class="socialicons"><i class="bi bi-twitter"></i></a>
-            <a href="https://www.instagram.com/mattbridgesdev/" target="_blank" class="socialicons"><i class="bi bi-instagram"></i></a>
-            <a href="https://github.com/MattBridges" target="_blank" class="socialicons"><i class="bi bi-github"></i></a>
+    <!-- Modals -->
+    <div class="modal" id="addEventModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add A New Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form action="#" id="newEventForm">
+              <label for="newEventName" class="form-label">Event Name</label>
+              <input id="newEventName" class="form-control" type="text" placeholder="Event" aria-label="First Name" required />
+              <label for="newEventCity" class="form-label">City</label>
+              <input id="newEventCity" class="form-control" type="text" placeholder="City" aria-label="First Name" required />
+              <label for="newEventState" class="form-label">State</label>
+                    <select id="newEventState" class="form-select" aria-label="States" aria-placeholder="Select a State" required>
+                      <option selected>Select a State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                    </select>
+              <label for="newEventAttendance" class="form-label">Attendance</label>
+              <input id="newEventAttendance" class="form-control" type="number" placeholder="Attendance" aria-label="First Name" required />
+              <label for="newEventDate" class="form-label">Event Date</label>
+              <input id="newEventDate" class="form-control" type="date" placeholder="mm/dd/yyyy" aria-label="First Name" required />
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="SaveEventData()">Save</button>
+          </div>
         </div>
       </div>
     </div>
 
 
-  </footer>
-
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
     <!-- SweetAlert CDN -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!--My script-->
-  <script src="/js/site.js"></script>
-
-  <script>
-    document.getElementById('btnSubmit').addEventListener('click', DisplayMessage);
-  </script>
-</body>
+    <!--My script-->
+    <script src="/js/site.js"></script>
+  </body>
 
 </html>
