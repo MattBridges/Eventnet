@@ -27,7 +27,9 @@
 
 html,
  body {
-   height: 100%;
+  height: 100%;
+  overflow-y: auto;
+ 
  }
 
  body {
@@ -40,7 +42,22 @@ html,
    line-height: var(--mrb-line-height);
    color: var(--mrb-dark-color);
    background: var(--mrb-background-color);
+ }
 
+ .language-js{
+  font-size: .8rem !important;
+ }
+
+ .code-writeup{  
+  text-transform:none;
+ }
+
+ .nav-link.active{
+  color: var(--mrb-red)!important;
+ }
+
+ .navbar-brand{
+  font-family: var(--mrb-subtitle-font);
  }
 
  .content {
@@ -54,36 +71,124 @@ html,
  }
 
  /* Start:Nav Bar Overrides */ 
- #mainNav{
-  background-color: var(--mrb-dark-color);
- }
+ #mainNav {
+  background: var(--mrb-dark-color);
+}
 
- #mainNav button{
-  border-color: var(--mrb-nav-toggler-glow);
- }
- 
- .navbar-toggler-icon-mrb {
+#mainNav button {
+  border-color: var(--mrb-highlight-color);
+}
+
+.navbar-toggler {
+  color: var(--mrb-nav-toggler-glow);
+}
+
+.navbar-toggler-icon-mrb {
   color: var(--mrb-nav-toggler-color);
+  display: inline-block;
+  vertical-align: middle;
   font-size: 1.5rem;
 }
  /* End:Nav Bar Overrides */ 
- /* Start:Footer Overrides */
- footer{
-  background-color: var(--mrb-dark-color);
-  color:var(--mrb-light-color);
+ /* Element Overrides */
+ h6,
+ .h6,
+ h5,
+ .h5,
+ h4,
+ .h4,
+ h3,
+ .h3,
+ h2,
+ .h2,
+ h1,
+ .h1 {
+   font-family: var(--mrb-heading-font);
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: .1rem;
+   color: var(--mrb-title-color);
  }
 
- .socialicons{
-  font-size: 2rem;
-  padding-left: .5rem;
-  color:var(--mrb-light-color);
+ .btn-primary {
+   color: var(--mrb-light-color) !important;
+   background-color: var(--mrb-secondary-color) !important;
+   border-color: var(--mrb-secondary-color) !important;
  }
 
- .socialicons:hover{
-  color:var(--mrb-highlight-color);
+ .btn-light {
+   color: var(--mrb-light-color) !important;
+   background-color: var(--mrb-primary-color) !important;
+   border-color: var(--mrb-secondary-color) !important;
  }
 
- /* End:Footer Overrides */
+ .btn-primary:hover {
+   filter: brightness(1.1) !important;
+   border-color: var(--mrb-highlight-color) !important;
+ }
+
+ .btn-primary:active,
+ .btn-primary:visited,
+ .btn-primary:focus {
+   filter: brightness(1.1) !important;
+   border-color: var(--mrb-primary-color);
+ }
+
+ .linkstyle {
+   color: var(--mrb-secondary-color);
+   text-decoration: none;
+ }
+
+ .linkstyle:hover {
+   color: var(--mrb-highlight-color);
+   filter: saturate(2);
+   text-decoration: underline;
+ }
+
+ .linkstyle-light {
+   color: var(--mrb-primary-color);
+   text-decoration: none;
+ }
+
+ .linkstyle-light:hover {
+   color: var(--mrb-highlight-color);
+   filter: saturate(2);
+   text-decoration: underline;
+ }
+
+ /* Start: Footer Styles */
+ .footer-main {
+   background-color: var(--mrb-dark-color);
+   color: var(--mrb-light-color);
+
+ }
+
+ .footer-main a.socialicons {
+   color: var(--mrb-secondary-color);
+   opacity: 1;
+   transition: color .2s ease-in;
+ }
+
+ .footer-main a.socialicons:hover {
+   color: var(--mrb-highlight-color);
+ }
+
+ .socialicons {
+   font-size: 2rem;
+ }
+
+ .footer-cta {
+   background-color: var(--mrb-secondary-color);
+   width: 75%;
+   border-radius: 10px;
+   color: var(--mrb-light-color);
+ }
+
+ .footer-bg-cta {
+   background: linear-gradient(to bottom, var(--mrb-background-color), var(--mrb-background-color)50%, var(--mrb-dark-color)50%, var(--mrb-dark-color)100%);
+ }
+
+ /* End:Footer Styles */
 
  .appLogo{
   max-width: 400px;
@@ -102,3 +207,9 @@ html,
   font-size: 4rem;
   padding-left: .5rem;
  }
+
+ .totalsTable th,td{
+  border-bottom: none;
+ }
+
+
