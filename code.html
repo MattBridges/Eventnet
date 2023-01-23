@@ -246,17 +246,17 @@
           <h5><code class="code-writeup">BuildDropDown()</code></h5>
           <p>To build our dropdown at the top of the page we iterate through all of our sample data, and pull each distinct city name out. Once we have our city list, we grab the dropdown button template from html and create a button for each one.  Once we have finished building our dropdown we then call our display functions for the stats section and event data table.</p>
           <h5><code class="code-writeup">CalculateStats()</code></h5>
-          <p>To calculate the information for our stats area we pass in our array of event data.  After intintializing an object to store all of our calculated information, we iterate through the event data b </p>
+          <p>To calculate the information for our stats area we pass in our array of event data.  After intintializing an object to store all of our calculated information, we iterate through the event data an make the appropriate calculations for each value in the finalValues object. We then return the final values object to the <code>DisplayStats()</code> function.</p>
           <h5><code class="code-writeup">DisplayStats()</code></h5>
-          <p>...</p>
-          <h5><code class="code-writeup">DisplayEventData()</code></h5>
-          <p>...</p>
+          <p>To display the stats information at the top left we set the textcontent of each element to its corespinding value from the finalValues object we passed in</p>
           <h5><code class="code-writeup">GetEventData()</code></h5>
-          <p>...</p>
+          <p>To initialize the event data we first check if there is any current events data stored localy on the users machine. If there isnt, we initialze the events from our test data, stringify that with JSON and save it to local storage.</p>
+          <h5><code class="code-writeup">DisplayEventData()</code></h5>
+          <p>To get the table information onto the page, we grab the tableBody and tableRowTemplate elements from html.  We then clear the table to make sure there is not any data to show and iterate through our events array using the template to build each row, then appending that row to the bottom of our table body.</p>
           <h5><code class="code-writeup">GetEvents()</code></h5>
-          <p>...</p>
+          <p>This function lets us filter through our events and pull out each one based on the cityname data-string attribute.</p>
           <h5><code class="code-writeup">SaveEventData()</code></h5>
-          <p>...</p>
+          <p>Finally to wrap this up we include a save data funtion allowing the user to locally save any data that they have entered themselves. </p>
         </div>
       </div>
 

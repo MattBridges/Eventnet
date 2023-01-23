@@ -104,8 +104,8 @@ function BuildDropDown() {
   DisplayEventData(currEvents);
 }
 
-function DisplayStats(eventsArray) {
-  let calculatedValues = CalculateStats(eventsArray);
+function DisplayStats(eventsObj) {
+  let calculatedValues = CalculateStats(eventsObj);
 
   document.getElementById('total').textContent = calculatedValues.total.toLocaleString();
   document.getElementById('average').textContent = calculatedValues.average.toLocaleString("en-US", { maximumFractionDigits: 0, minimumFractionDigits: 0 });
