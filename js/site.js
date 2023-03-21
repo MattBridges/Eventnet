@@ -217,5 +217,5 @@ function SaveEventData(){
 
   BuildDropDown();
   document.getElementById('statsHeader').textContent = 'All';
-  document.getElementById('newEventForm').requestFullscreen();
+  document.getElementById('newEventForm').reset();
 }
